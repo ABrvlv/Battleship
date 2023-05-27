@@ -301,7 +301,10 @@ public class GamePlayActivity extends AppCompatActivity {
             int id = view.getId();
             switch(id) {
                 case R.id.ib_rotate:
-                    if(selectedShip != null && selectedShip.isPlaced()) {
+                    if (selectedShip.getSize()==1) {
+                        //
+                    }
+                    else if(selectedShip != null && selectedShip.isPlaced()) {
                         Cell headCell = selectedShip.rotate();
                         if (!userBoard.placeShip(selectedShip, headCell)) {
                             displayMessage(getString(R.string.tv_guide_rotate_failed));
